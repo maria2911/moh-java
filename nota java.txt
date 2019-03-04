@@ -24,14 +24,11 @@ Hello World  ==> dapat tgk output bg file java tersebut
 3. git commit -m "first commit"
 4. git push
 
+git pull - untuk jika terbuat perubahan pada git hub
+
 pada folder C: view > hidden item (tick) supya nampak hidden item
-
-KUIH BAULU
-Acuan/ loyang = class
-kuih = obj
-
-
 git config --global  --list
+
 
 Pengguna PC 09@Lenovo-PC09 MINGW64 ~
 $ cd /c/moh-java
