@@ -5,11 +5,29 @@ i.e : this.jumlah = 100;
 */
 
 public class LoanCalculator extends Calculator {
-    int jumlah; // variable @ property
+     int jumlah; // variable @ property
+     // value in ix boleh tukar
+     final String tajuk = "LOAN CALCULATOR";
+    
+    // ===================================================
+    // ini error sebab averrite annition
+    // ini x boleh sebab parent info() dah final
+    //    public void info(){        
+    //    }
+    // ====================================================
+    // ini overrite cetak dlm parent
+    
+    @Override
+    public void cetak(){
+        //this.tajuk ="abcc"; // errror x boleh tukar
+        System.out.println("Cetak LoanCalculator ");
+    }
+   
     // ctrl + space = show auto sugesstion
     //psvm + tab = auto generate => public static void main(String[] args)
     public static void main(String[] args) { 
         LoanCalculator cal = new LoanCalculator();
+        cal.cetak();
         LoanCalculator cal2 = new LoanCalculator(1);
     }
     
