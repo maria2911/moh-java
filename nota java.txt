@@ -1,0 +1,55 @@
+CARA NK RUN JAVA IN NOTEPAD.. TANPA EDITOR
+
+1.DOWNLOAD JDK dari oracle website
+
+2. INSTALL C:\Program Files\Java\jdk
+
+3. Set path   C:\Program Files\Java\jdk1.8.0_144\bin
+
+4. cara COMPILE ( javac<nama file>.java)
+ &== utk compile
+Pengguna PC 09@Lenovo-PC09 MINGW64 /c/moh-java
+$ javac HelloWorld.java   
+
+5. RUN  JAVA ( java <nama file>)
+==untuk run
+Pengguna PC 09@Lenovo-PC09 MINGW64 /c/moh-java
+$ java HelloWorld     =====> xyah .java
+Hello World  ==> dapat tgk output bg file java tersebut
+
+6. Git command always guna git bash
+
+1. git clone <url> copy dr gitgit hub
+2. git add *
+3. git commit -m "first commit"
+4. git push
+
+pada folder C: view > hidden item (tick) supya nampak hidden item
+
+KUIH BAULU
+Acuan/ loyang = class
+kuih = obj
+
+
+git config --global  --list
+
+Pengguna PC 09@Lenovo-PC09 MINGW64 ~
+$ cd /c/moh-java
+
+Pengguna PC 09@Lenovo-PC09 MINGW64 /c/moh-java
+$ java -version
+java version "1.8.0_144"
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+
+cara nak run dlm cmd 
+Pengguna PC 09@Lenovo-PC09 MINGW64 /c/moh-java
+$ cd /c/moh-java
+
+== utk compile
+Pengguna PC 09@Lenovo-PC09 MINGW64 /c/moh-java
+$ javac HelloWorld.java   
+
+
+
+
