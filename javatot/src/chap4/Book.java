@@ -19,7 +19,8 @@ public class Book {
         
     }
     
-    Book(){
+    Book() // constructor
+    {
         Book.bil = Book.bil + 1;
         System.out.println("bil buku = " + Book.bil); // sout + tab
         
