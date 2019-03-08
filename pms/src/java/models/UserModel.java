@@ -3,17 +3,21 @@ package models;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**
- * BELAJAR TO LOGIN
- * @author Pengguna PC 09
- */
 public class UserModel extends Model {
-    
     private int id;
-    private String stafId;
+    private String staffId;
     private String pwd;
     private String role;
     private String name;
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public String getName() {
         return name;
@@ -22,9 +26,8 @@ public class UserModel extends Model {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-        public int getId() {
+
+    public int getId() {
         return id;
     }
 
@@ -32,12 +35,12 @@ public class UserModel extends Model {
         this.id = id;
     }
 
-    public String getStafId() {
-        return stafId;
+    public String getStaffId() {
+        return staffId;
     }
 
-    public void setStafId(String stafId) {
-        this.stafId = stafId;
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     public String getPwd() {
@@ -56,39 +59,50 @@ public class UserModel extends Model {
         this.role = role;
     }
     
+    public boolean insert() {
+        String sql = "INSERT INTO users(name, pwd, role, gender)" +
+                     "VALUES('"+this.name+"','"+ this.pwd+"','"+this.role+"','"+this.gender+"')";
+        System.out.println(sql);
+        try {
+            Statement stmt = this.getStmt();
+            stmt.execute(sql); // insert, update, delete guna execute()
+        } catch (Exception e) {
+            e.printStackTrace(); // print err msg to console
+            return false;
+        }
+        return true;
+    }
+    
     // return true jika staffid dan pwd matched
-    public boolean isExist(String staffID, String pwd) {
+    public boolean isExist(String staffId, String pwd) {
         String sql = "SELECT * FROM users "
-                + "WHERE staff_id ='" + staffID + "' "
-                + "AND pwd = '" + pwd + "'";
-        try 
-        {
+                   + "WHERE staff_id ='" + staffId + "' "
+                   + "AND pwd = '" + pwd + "'";
+        try {
             Statement stmt = this.getStmt();
             ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next ()){
+            if (rs.next()) {
                 this.id = rs.getInt("id");
                 this.pwd = rs.getString("pwd");
-                this.stafId = rs.getString("role");
+                this.staffId = rs.getString("staff_id");
+                this.role = rs.getString("role");
                 this.name = rs.getString("name");
                 return true; // user wujud
+            } else {
+                return false; // user tidak wujud
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return false; /// user x wujud
+        return false;
     }
-      
-     public static void main(String[] args) {
-         
+    
+    public static void main(String[] args) {
         UserModel model = new UserModel();
-        if(model.isExist("222", "123456")) {
+        if (model.isExist("11111", "12345")) {
             System.out.println("ok");
+        } else {
+            System.out.println("ko");
         }
-        else {
-            System.out.println("NOT ok");
-        }
-         
     }
-             
 }
