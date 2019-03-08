@@ -14,7 +14,17 @@ import models.UserModel;
 
 @WebServlet(name = "Login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
-
+    
+    // for logout
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        HttpSession session = request.getSession();
+        session.invalidate(); // destroy session
+        response.sendRedirect("/pms/pub/login.jsp");
+   
+}
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -27,6 +37,7 @@ public class Login extends HttpServlet {
                      
             HttpSession sess = request.getSession();
             sess.setAttribute("loggedin", true);
+            sess.setAttribute("user", user); // simpan maklumat user yg login
             response.sendRedirect("/pms/project");
         }
         else {
