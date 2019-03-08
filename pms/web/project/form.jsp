@@ -10,14 +10,14 @@ if (pro == null){
 
 %>
 
-<legen>Daftar Projek</legen>
+<legend>Daftar Projek</legend>
 <form method="post" action="/pms/project">
     <input type="hidden" name="id" value="<%= pro.getId() %>"
            
+      <br>
     <div class="row">
         <div class="col-md-1">TAJUK</div>
-        <div class="col-md-4"><input  value="<%= pro.getTitle() %>" class="form-control" name="title"></div>
-<!--        <div class="col-md-4"><textarea class="form-control" name="title"></textarea></div>-->
+        <div class="col-md-4"><input value="<%= pro.getTitle() %> "class="form-control" name="title"></div>
     </div>
     <br>
     <div class="row">

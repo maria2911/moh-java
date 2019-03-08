@@ -21,10 +21,10 @@
 
 <table class="table table-bordered">
     <tr>
-        <td>Bil</td>
-        <td>Tajuk</td>
-        <td>Keterangan</td>
-        <td>Tindakan</td>
+        <td align="center">Bil</td>
+        <td align="center">Tajuk</td>
+        <td align="center">Keterangan</td>
+        <td align="center">Tindakan</td>
     </tr>
     <% 
         ArrayList list = (ArrayList)request.getAttribute("list");
@@ -32,8 +32,8 @@
             ProjectModel pro = (ProjectModel) list.get(i);
     %>
     <tr>
-        
-        <td><%= i + 1 %></td>
+<!--         x nak ikut id dr id.. so ikut i counter-->
+        <td align="center"><%= i + 1 %></td> 
         <td><%= pro.getTitle() %></td>
         <td><%= pro.getDescription() %></td>
         <td>  

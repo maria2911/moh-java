@@ -14,5 +14,5 @@ if (session.getAttribute("loggedin") == null) {
         <title>PMS</title>
     </head>
     <body>
-        <h1>Sistem Pengurusan Project - maria!</h1>
+        <h1>Sistem Pengurusan Project - maria</h1>
 
