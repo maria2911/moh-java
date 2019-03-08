@@ -1,8 +1,9 @@
-<%-- 
-    Document   : header
-    Created on : Mar 7, 2019, 10:38:00 AM
-    Author     : Pengguna PC 09
---%>
+<% 
+if (session.getAttribute("loggedin") == null) {
+    response.sendRedirect("/pms/pub/login.jsp");
+    }
+%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
