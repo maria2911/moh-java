@@ -46,14 +46,41 @@ public class Project extends HttpServlet {
   @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {
-        
+       
+       String search = request.getParameter("search");
+       if(search != null){
+         // searching  
+         String title = request.getParameter("title");
+         String desc = request.getParameter("description");
+         
+         ProjectModel pro = new ProjectModel();
+         ArrayList list = pro.search(title,desc);
+         
+         request.setAttribute("list", list);
+         request.getRequestDispatcher("project/list.jsp").forward(request, response);
+       }
+       else {
+       // insert & update
        String title = request.getParameter("title");
        String desription = request.getParameter("description");
+       String id = request.getParameter("id");
        
        ProjectModel pro = new ProjectModel();
        pro.setTitle(title);
        pro.setDescription(desription);
-       pro.insert();
+      
+       if(id.equals("0")) {
+           // insert
+           pro.insert();
+       }
+       else {
+                // update
+                int id2 = Integer.parseInt(id);
+                pro.update(id2);
+       
+            }
+       }
+       
         //request.getRequestDispatcher("project/list.jsp")
         response.sendRedirect("project");
     }

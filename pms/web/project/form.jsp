@@ -3,10 +3,16 @@
 
 <%
 ProjectModel pro = (ProjectModel) request.getAttribute("project");
+
+if (pro == null){
+    pro = new ProjectModel();
+}
+
 %>
 
 <legen>Daftar Projek</legen>
 <form method="post" action="/pms/project">
+    <input type="hidden" name="id" value="<%= pro.getId() %>"
     <div class="row">
         <div class="col-md-1">TAJUK</div>
         <div class="col-md-4"><input  value="<%= pro.getTitle() %>" class="form-control" name="title"></div>
